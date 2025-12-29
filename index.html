@@ -1,131 +1,274 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <!-- 페이지의 정보를 담는 곳이에요 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나의 첫 홈페이지 🌟</title>
+    <title>포트폴리오 - 나의 작업들 🎯</title>
     
-    <!-- 여기서 페이지를 예쁘게 꾸며요 -->
     <style>
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
         
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
             color: #333;
         }
         
+        /* 맨 위 헤더 부분이에요 */
         header {
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: #2c3e50;
             color: white;
-            padding: 30px;
+            padding: 60px 20px;
             text-align: center;
         }
         
         header h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             margin-bottom: 10px;
         }
         
-        nav {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 15px;
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        /* 전체 컨테이너 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* 섹션 제목 */
+        h2 {
             text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 20px;
         }
         
-        nav a {
+        /* 카드들을 배열하는 그리드 (3개씩) */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        /* 각각의 카드 */
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        /* 마우스를 갖다대면 살짝 위로 올라가요 */
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* 카드의 이미지/아이콘 부분 */
+        .card-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+        }
+        
+        .card-image.style2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .card-image.style3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        /* 카드의 텍스트 부분 */
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .card-tag {
+            display: inline-block;
+            background-color: #3498db;
             color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.1em;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-right: 8px;
+            margin-bottom: 5px;
         }
         
-        nav a:hover {
-            color: #ffd700;
-        }
-        
-        main {
-            max-width: 1000px;
-            margin: 30px auto;
+        /* 소개 섹션 */
+        .about-section {
             background-color: white;
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
         }
         
-        section {
-            margin-bottom: 40px;
-        }
-        
-        section h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-        
-        section p {
-            margin-bottom: 15px;
+        .about-section p {
+            font-size: 1.1em;
             line-height: 1.8;
+            margin-bottom: 15px;
         }
         
+        /* 푸터 */
         footer {
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: #2c3e50;
             color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 30px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 
 <body>
-    <!-- 페이지의 맨 위 부분이에요 -->
+    <!-- 헤더: 큰 제목과 소개 -->
     <header>
-        <h1>🚀 나의 멋진 홈페이지</h1>
-        <p>코딩의 첫 걸음을 떼었어요!</p>
+        <h1>🎯 내 포트폴리오</h1>
+        <p>코딩으로 만드는 멋진 것들</p>
     </header>
     
-    <!-- 메뉴판처럼 링크들을 모아놓는 곳이에요 -->
-    <nav>
-        <a href="#about">소개</a>
-        <a href="#skills">기술</a>
-        <a href="#contact">연락처</a>
-    </nav>
-    
-    <!-- 페이지의 본문 내용이에요 -->
-    <main>
-        <!-- 첫 번째 섹션: 자기소개 -->
-        <section id="about">
-            <h2>👋 안녕하세요!</h2>
-            <p>저는 코딩을 배우고 있는 열정적인 학습자입니다.</p>
-            <p>이 홈페이지는 제 첫 번째 코딩 프로젝트예요. 아직 부족하지만 계속 배우고 있어요! 👍</p>
+    <div class="container">
+        <!-- 소개 섹션 -->
+        <section class="about-section">
+            <h2>👨‍💻 나에 대해</h2>
+            <p>안녕하세요! 저는 웹 개발을 배우고 있는 개발자입니다.</p>
+            <p>새로운 기술을 배우는 것을 좋아하고, 항상 성장하고 싶어요. 이 페이지는 제가 만들 멋진 프로젝트들을 계획하는 공간입니다! 🚀</p>
         </section>
         
-        <!-- 두 번째 섹션: 기술 -->
-        <section id="skills">
-            <h2>💻 배우고 있는 것들</h2>
-            <p>✅ HTML - 홈페이지의 구조를 만들어요</p>
-            <p>✅ CSS - 홈페이지를 예쁘게 꾸며요</p>
-            <p>✅ JavaScript - 홈페이지를 움직이게 해요</p>
-        </section>
+        <!-- 프로젝트 섹션 -->
+        <h2>📁 나의 프로젝트들</h2>
         
-        <!-- 세 번째 섹션: 연락처 -->
-        <section id="contact">
-            <h2>📧 연락처</h2>
-            <p>이메일: your-email@example.com</p>
-            <p>GitHub: github.com/yourname</p>
-        </section>
-    </main>
+        <div class="card-grid">
+            <!-- 첫 번째 카드 -->
+            <div class="card">
+                <div class="card-image">
+                    🚀
+                </div>
+                <div class="card-content">
+                    <h3>프로젝트 1</h3>
+                    <p>정말 멋진 프로젝트를 계획 중이에요. 기대해주세요!</p>
+                    <div>
+                        <span class="card-tag">Coming Soon</span>
+                        <span class="card-tag">Exciting</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 두 번째 카드 -->
+            <div class="card">
+                <div class="card-image style2">
+                    🚀
+                </div>
+                <div class="card-content">
+                    <h3>프로젝트 2</h3>
+                    <p>곧 멋진 것을 만들 거예요. 기대해주세요!</p>
+                    <div>
+                        <span class="card-tag">Coming Soon</span>
+                        <span class="card-tag">Exciting</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 세 번째 카드 -->
+            <div class="card">
+                <div class="card-image style3">
+                    🚀
+                </div>
+                <div class="card-content">
+                    <h3>프로젝트 3</h3>
+                    <p>더 멋진 프로젝트를 계획 중이에요. 기대해주세요!</p>
+                    <div>
+                        <span class="card-tag">Coming Soon</span>
+                        <span class="card-tag">Exciting</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 네 번째 카드 -->
+            <div class="card">
+                <div class="card-image">
+                    🚀
+                </div>
+                <div class="card-content">
+                    <h3>프로젝트 4</h3>
+                    <p>정말 멋진 프로젝트를 계획 중이에요. 기대해주세요!</p>
+                    <div>
+                        <span class="card-tag">Coming Soon</span>
+                        <span class="card-tag">Exciting</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 다섯 번째 카드 -->
+            <div class="card">
+                <div class="card-image style2">
+                    🚀
+                </div>
+                <div class="card-content">
+                    <h3>프로젝트 5</h3>
+                    <p>곧 멋진 것을 만들 거예요. 기대해주세요!</p>
+                    <div>
+                        <span class="card-tag">Coming Soon</span>
+                        <span class="card-tag">Exciting</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 여섯 번째 카드 -->
+            <div class="card">
+                <div class="card-image style3">
+                    🚀
+                </div>
+                <div class="card-content">
+                    <h3>프로젝트 6</h3>
+                    <p>더 멋진 프로젝트를 계획 중이에요. 기대해주세요!</p>
+                    <div>
+                        <span class="card-tag">Coming Soon</span>
+                        <span class="card-tag">Exciting</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <!-- 페이지의 맨 아래 부분이에요 -->
+    <!-- 푸터 -->
     <footer>
-        <p>&copy; 2024. 모든 권리 보유. 😊</p>
+        <p>💌 연락처: my-email@example.com</p>
+        <p>&copy; 2024. 모든 권리 보유. 열심히 배우고 있어요! 🎓</p>
     </footer>
 </body>
 
 </html>
+
